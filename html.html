@@ -23,7 +23,7 @@
             <ul>
                 <li></li>
                 <li></li>
-                <li><a href="#about-me">About Me</a></li>
+                <li></li>
             </ul>
         </nav>
         <nav class="Module Navigation">
@@ -53,6 +53,20 @@
                                 <li><a href="#module2-5">Browsers</a></li>
                                 <li><a href="#module2-6">Search Engine Optimization (SEO)</a></li>
                             </ul>
+                    </aside>
+                </li>
+                <li>
+                    <aside>
+                        <details>
+                            <summary>Module 3</summary>
+                            <ul>
+                                <li><a href="#module3-1">HTML Tags and Attributes</a></li>
+                                <li><a href="#module3-2">HTML Elements</a></li>
+                                <li><a href="#module3-3">HTML Document Structure</a></li>
+                                <li><a href="#module3-4">HTML Semantic Elements</a></li>
+                                <li><a href="#module3-5">Whitespace</a></li>
+                            </ul>
+                        </details>
                     </aside>
                 </li>
             </ul>
@@ -146,12 +160,62 @@
                 </p>
             </section>
         </article>
+        <hr>
         <article id="module3">
             <h2>Your First HTML File</h2>
             <section id="module3-1">
+                <h3>Tags and Attributes</h3> 
+                <p>
+                    The name of an HTML element is the name that appears at the beginning of the element's start tag and at the end of the element's end tag (if the element has an end tag). For example, the p in the &lt;p&gt; start tag and &lt;/p&gt; end tag is the name of the HTML paragraph element. Note that an element name in an end tag is preceded by a slash character: &lt;/p&gt;, and that for void elements, the end tag is neither required nor allowed.&lt;br&gt;
+                    An attribute extends an HTML or XML element, changing its behavior or providing metadata.
+
+                    An attribute always has the form name="value" (the attribute's identifier followed by its associated value). You may see attributes without an equals sign or a value. That is a shorthand for providing the empty string in HTML. However, this is not valid in XML: XML requires all attributes to have an explicit value.
+                    A number of HTML attributes are boolean attributes. These attributes' values are only controlled by the presence or absence of the attribute. See boolean attributes for more information.
+                </p>
+            </section>
+            <section id="module3-2">
+                <h3>Case Insensitivity</h3>
+                    <p>
+                        HTML isn't picky about capitalization. You can write tags and attributes using uppercase, lowercase, or a mix of both. For example, &lt;html&gt;, &lt;HTML&gt;, and &lt;Html&gt; all work the same way. While browsers understand all these variations, it's generally considered good practice to stick to lowercase for better readability and consistency in your code.
+                    </p>
             </section>  
-        </article>
+            <section id="module3-3">
+                <h3>HTML Entities</h3>
+                <p>
+                    Entity is a term from the Standard Generalized Markup Language (SGML), which refers to a reference to information that can be defined once and used throughout a document.
+                    The term "HTML Entity" is used as a synonym for a character reference — a pattern of characters that can represent another character in the HTML. For example, &amp;lt; is used to represent the less-than symbol (&lt;) in HTML content.  
+                </p>
+               
+            </section>
+             <section id="module3-4">
+                    <h3>HTML Comments</h3>
+                    <p>
+                        An HTML comment is used to add explanatory notes to the markup or to prevent the browser from interpreting specific parts of the document. Comments are not displayed in the browser and are only visible in the source code. They can be helpful for developers to leave reminders, explanations, or temporarily disable code without deleting it.
+                        Comments start with the string &lt;!-- and end with the string --&gt;, generally with text in between. This text cannot start with the string > or ->, cannot contain the strings --&gt; or --!>, nor end with the string &lt;!-, though &lt;! is allowed.
+                        The browser ignores comments as it renders the code. In other words, they are not visible on the page - just in the code. HTML comments are a way for you to write helpful notes about your code or logic.
+                        The above is true for XML comments as well. In addition, in XML, such as in SVG or MathML markup, a comment cannot contain the character sequence --.
+                        Comments can be used on a single line, or span multiple lines. They can be used in the following places:
+                    </p>
+                    <ol>
+                        <li> Before and after the Doctype</li>
+                        <li>Before and after the &lt;html&gt; element</li>
+                        <li>As the content of most elements except: &lt;script&gt;, &lt;style&gt;, &lt;title&gt;, &lt;textarea&gt;, because these elements interpret their content as raw text</li>
+                    </ol>
+                </section>
+                <section id="module3-5">
+                        <h3>Whitespace</h3>
+                        <p>
+                            In HTML, whitespace refers to any sequence of space characters, including spaces, tabs, and line breaks. Browsers generally collapse multiple consecutive whitespace characters into a single space when rendering the content. This means that extra spaces or line breaks in your HTML code will not affect the visual layout of the page. However, whitespace can be important for readability and organization of your code, making it easier for developers to understand and maintain.
+                        </p>
+                </section>
+            </article>
+            <hr>
+            <article id="module 5">
+                <h2></h2>
+                section
+            </article>
     </main>
+    <hr>
     <footer>
         <p>&copy; 2026 Developer Xperience. All rights reserved.</p>
     </footer>
