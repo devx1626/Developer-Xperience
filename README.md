@@ -29,7 +29,7 @@ Both `html.html` and `css.html` follow the same consistent structure:
 
 ### Section ID Convention
 
-```
+``` 
 module-1-1 through module-1-7   (Module 1: 7 sections)
 module-2-1 through module-2-6   (Module 2: 6 sections)
 module-3-1 through module-3-2   (Module 3: 2 sections)
@@ -44,7 +44,35 @@ module-10-1 through module-10-6 (Module 10: 6 sections)
 
 **Total: 63 sections across 10 modules**
 
-## CSS Enhancements (`main.css`)
+### CSS Roadmap Module Overview
+
+The CSS roadmap follows the same 10-module structure as the HTML roadmap, covering:
+
+- **Module 1: CSS Fundamentals** - Introduction, syntax, selectors, box model, colors/backgrounds, typography, links/navigation
+- **Module 2: CSS Layout** - Positioning, Flexbox, CSS Grid, responsive design, media queries
+- **Module 3: CSS Interactivity** - Pseudo-classes/pseudo-elements, transitions/animations, transforms, forms styling, focus states
+- **Module 4: Advanced Layout Techniques** - CSS variables, calc/math functions, subgrid, gap/spacing, column balance
+- **Module 5: Design Systems** - Responsive design patterns, mobile-first approach, cross-browser compatibility, accessibility, performance optimization
+- **Module 6: Practical Projects** - Landing page, form, newsletter subscription
+- **Module 7: CSS Architecture** - BEM methodology, scalable patterns, CSS organization, preprocessors, modern workflow
+- **Module 8: CSS Grid Deep Dive** - Explicit vs implicit grid, named lines, auto-placement, subgrid details, accessibility
+- **Module 9: Flexbox Mastery** - Main axis vs cross axis, alignment/justification, order property, nested flexbox, debugging
+- **Module 10: Final Projects & Review** - Complete web page redesign, CSS portfolio layout, responsive admin dashboard, accessible component library, final exam project
+
+### HTML Roadmap Module Overview
+
+The HTML roadmap covers fundamentals through semantic elements:
+
+- **Module 1: Introduction to HTML** - Markup languages, frontend development, HTML basics, semantics, CSS/JS introduction
+- **Module 2: How the Web Works** - HTTP, domain name, hosting, DNS, browsers, SEO/GEO
+- **Module 3: Your First HTML File** - HTML skeleton, saving files, browser viewing
+- **Module 4: HTML Document Structure** - DOCTYPE, meta tags, semantic structure, code samples
+- **Module 5: HTML Text Elements** - Headings, paragraphs, formatting, lines/breaks, summary table
+- **Module 6: HTML Links** - Anchor elements, URLs, link targets, named anchors, accessible text
+- **Module 7: HTML Images and Media** - Images, figure/captions, SVG, video/audio
+- **Module 8: HTML Tables** - Table elements, rows/cells, headers, accessible tables
+- **Module 9: HTML Forms** - Form elements, inputs, label association, controls/validation
+- **Module 10: HTML5 Semantic Elements** - Landmarks, when not to use semantic elements, summary
 
 The stylesheet was improved with:
 
