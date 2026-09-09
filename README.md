@@ -58,6 +58,29 @@ previews), set the `SITE_URL` environment variable when building:
 SITE_URL=https://your-domain.example npm run build
 ```
 
+## CI and Deployment
+
+Two GitHub Actions workflows run on every push to `main` (and on pull requests):
+
+- **CI** (`.github/workflows/ci.yml`) - installs dependencies, builds the site,
+  and validates the generated output (tag balance, anchor targets, heading
+  outline, asset references, CSS braces, manifest).
+- **Deploy** (`.github/workflows/deploy.yml`) - builds, validates, and
+  publishes the site to GitHub Pages.
+
+### Validating locally
+
+The same checks CI runs are available as a local script:
+
+```bash
+npm run build                      # regenerate the pages first
+python3 scripts/validate_html.py   # structural validation
+```
+
+The deploy workflow publishes on every push to `main` (or manually via the
+Actions tab with **Run workflow**). The public URL appears in the repo's
+**Settings → Pages** once the first deploy completes.
+
 ## Roadmap Format
 
 Both `html.html` and `css.html` follow the same consistent structure:

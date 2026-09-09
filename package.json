@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "validate": "python3 scripts/validate_html.py"
   },
   "license": "ISC",
   "devDependencies": {
