@@ -1,57 +1,23 @@
+---
+title: "Developer Xperience | Learn Web Development"
+description: "Learn web development from Africa - HTML, CSS, JavaScript, accessibility, and career skills"
+ogTitle: "Developer Xperience"
+ogDescription: "Learn web development from Africa - HTML, CSS, JavaScript, accessibility, and career skills"
+twitterTitle: "Developer Xperience"
+pageTitle: "Web Development Fundamentals"
+bannerLink: false
+menuInclude: nav-index.njk
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0a0a0b">
-<meta name="description" content="Learn web development from Africa - HTML, CSS, JavaScript, accessibility, and career skills">
-<meta name="author" content="Dev X">
-<link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon" sizes="32x32">
-<link rel="icon" href="assets/icons/favicon-16x16.png" type="image/png" sizes="16x16">
-<link rel="icon" href="assets/icons/favicon-32x32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="assets/icons/android-chrome-192x192.png" type="image/png" sizes="192x192">
-<link rel="icon" href="assets/icons/android-chrome-512x512.png" type="image/png" sizes="512x512">
-<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<link rel="stylesheet" href="assets/css/style.css"><script src="assets/js/script.js" defer></script>
-<title>Developer Xperience | Learn Web Development</title>
-
-<!-- Open Graph / Twitter Cards --><meta property="og:type" content="website">
-<meta property="og:site_name" content="Developer Xperience">
-<meta property="og:title" content="Developer Xperience">
-<meta property="og:description" content="Learn web development from Africa - HTML, CSS, JavaScript, accessibility, and career skills">
-<meta property="og:image" content="assets/images/devx_banner.png"><meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Developer Xperience">
-<meta name="twitter:description" content="Learn web development from Africa - HTML, CSS, JavaScript, accessibility, and career skills">
-<meta name="twitter:image" content="assets/images/devx_banner.png">
-
+  {% include "head.njk" %}
 </head>
 <body>
   <a class="content-link" href="#main-content">Skip to main content</a>
 
   <header>
-    <div class="banner"><img src="assets/images/devx_banner.png" alt="Developer Xperience banner with code icons and vibrant design" width="1376" height="768" title="Banner" loading="eager" fetchpriority="high" class="banner-image"><h1>Web Development Fundamentals</h1>
-  <div class="dropdown">
-    <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="banner-menu" aria-label="More options">
-      <img src="assets/images/more-options.svg" alt="" width="24" height="24">
-    </button>
-    <div class="dropdown-menu" id="banner-menu">
-      
-<nav class="main-navigation" aria-label="Main navigation">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="html.html">HTML Roadmap</a></li>
-    <li><a href="css.html">CSS Roadmap</a></li>
-    <li><a href="#about">About Me</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-    </div>
-  </div>
-</div>
-
+    {% include "banner.njk" %}
     <hr>
   </header>
 
@@ -116,19 +82,7 @@
     </article>
   </main>
 
-  <footer>
-  <nav class="footer-navigation" aria-label="Footer navigation">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="html.html">HTML Roadmap</a></li>
-      <li><a href="css.html">CSS Roadmap</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <p>&copy; 2026 Developer Xperience. All rights reserved.</p>
-</footer>
-
+  {% include "footer.njk" %}
 
 </body>
 </html>

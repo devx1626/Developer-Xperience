@@ -1,0 +1,624 @@
+/* ============================================
+   Developer Xperience - style.css
+   Basic visual enhancements
+   ============================================ */
+
+/* 1. Color palette - define once, reuse everywhere */
+:root {
+    --bg: #0a0a0b;
+    --card: #1a1a1f;
+    --border: #3a3a4a;
+    --accent: #00d4aa;
+    --accent-hover: #00f5c4;
+    --text: #e8e8f0;
+    --code-bg: #272822;
+    --code-text: #f8f8f2;
+}
+
+/* 2. Base reset & typography */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: clamp(0.9rem, 0.85rem + 0.4vw, 1.05rem);
+    color: var(--text);
+    background: var(--bg);
+    scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+}
+
+/* Two soft radial gradients layered over the solid base color */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(1200px 600px at 80% -10%, rgba(0, 212, 170, 0.12), transparent 60%),
+        radial-gradient(900px 500px at -10% 10%, rgba(66, 150, 250, 0.1), transparent 55%);
+    background-attachment: fixed;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+h2, h3, h4, h5, h6 {
+    text-align: center;
+    color: var(--text);
+}
+
+/* 3. Links - accent color, no underline until hover/focus */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--accent);
+}
+
+/* Accessible focus indicators for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Skip link: hidden off-screen until it receives keyboard focus */
+.content-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 200;
+    padding: 0.75rem 1.25rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: bold;
+    border-radius: 0 0 8px 0;
+}
+
+.content-link:focus {
+    left: 0;
+}
+
+/* 4. Site navigation - banner dropdown and footer nav */
+.main-navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.main-navigation a {
+    display: block;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.main-navigation a[aria-current="page"] {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.module-navigation {
+    margin-top: 1rem;
+}
+
+/* Filter box pinned above the scrollable module list */
+.menu-search {
+    position: sticky;
+    top: -0.75rem; /* cancels the menu's own 0.75rem padding while scrolled */
+    z-index: 1;
+    margin: -0.75rem -0.75rem 0.75rem;
+    padding: 0.75rem;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+}
+
+.menu-search-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+}
+
+.menu-search-input:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.menu-search-input::placeholder {
+    color: var(--text);
+    opacity: 0.55;
+}
+
+.menu-search-status {
+    min-height: 1em;
+    margin: 0.35rem 0 0;
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+/* A closed group whose sections didn't match */
+.module-group.search-hidden {
+    display: none;
+}
+
+/* Visually hidden, still read by screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.module-nav-list {
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+}
+
+.module-group > a {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.submodule-aside {
+    margin: 0.25rem 0 0;
+    padding-left: 1rem;
+    font-size: 0.92em;
+}
+
+.submodule-aside ul {
+    display: grid;
+    gap: 0.25rem;
+    list-style: none;
+}
+
+.submodule-aside a {
+    color: var(--text);
+}
+
+.submodule-aside a:hover,
+.submodule-aside a:focus {
+    color: var(--accent-hover);
+}
+
+.nav-crosslink {
+    margin-top: 1rem;
+    font-size: 0.92em;
+    color: var(--text);
+}
+
+.footer-navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem 1.25rem;
+    list-style: none;
+    margin-bottom: 0.75rem;
+}
+
+/* 5. Banner */
+/* Shared panel look: card background, border, and corner radius */
+.banner,
+.dropdown-menu {
+    border: 2px solid var(--border);
+    background-color: var(--card);
+    border-radius: 8px;
+}
+
+.banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: none;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Shared inner-box look for banner children and the dropdown button */
+.banner-image,
+.banner h1,
+.dropdown-toggle {
+    border: 2px solid var(--border);
+    background-color: var(--bg);
+    border-radius: 8px;
+}
+
+.banner-image,
+.banner h1 {
+    margin: 0;
+    padding: 0.5rem 1rem;
+}
+
+.banner-image {
+    width: 250px;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.banner h1 {
+    flex: 1 1 12rem;
+    text-align: center;
+    font-size: clamp(1.1rem, 0.9rem + 1.5vw, 1.6rem);
+}
+
+/* "More options" dropdown - pinned to the far end of the banner */
+.dropdown {
+    position: relative;
+    margin-left: auto;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    cursor: pointer;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus-visible {
+    border-color: var(--accent);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 100;
+    min-width: 280px;
+    max-height: 70vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus {
+    background: var(--bg);
+    color: var(--accent);
+}
+
+/* Must outrank .dropdown-menu a { display: block } or filtered links stay visible */
+.dropdown-menu a[hidden] {
+    display: none;
+}
+
+/* Menu lists inside the dropdown */
+.dropdown-menu ul,
+.dropdown-menu li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-menu .main-navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.dropdown-menu .main-navigation a {
+    padding: 0.35rem 0.6rem;
+    font-weight: 600;
+}
+
+.dropdown-menu .submodule-aside {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+/* 6. Article / section cards */
+article,
+section {
+    margin: 2rem auto;
+    padding: 3em;
+    max-width: none;
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover,
+section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* The two-column module pages need tighter cards,
+   and their stacked sections need their own spacing */
+.module-layout article {
+    margin: 0;
+    max-width: none;
+}
+
+.module-layout article > section {
+    margin: 1.5rem 0 0;
+    max-width: none;
+}
+
+/* 7. Code blocks & inline code */
+pre {
+    padding: 1rem;
+    background: var(--code-bg);
+    color: var(--code-text);
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+code {
+    background: rgba(0, 212, 170, 0.12);
+    color: var(--accent);
+    padding: 0 0.25em;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    overflow-wrap: break-word;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    overflow-wrap: normal;
+}
+
+/* 8. Paragraphs */
+p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-wrap: pretty;
+}
+
+/* 9. Module pages: stack module sections in one full-width column */
+.module-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+.module-layout hr {
+    display: none;
+}
+
+/* 10. Contact form */
+.contact-form label {
+    display: block;
+    margin: 1rem 0 0.25rem;
+    font-weight: bold;
+}
+
+.contact-form label span {
+    color: var(--accent);
+}
+
+.form-hint {
+    font-size: 0.9em;
+    color: var(--text);
+    opacity: 0.85;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent);
+}
+
+/* Flag a field only once the user has interacted with it */
+.contact-form :is(input, textarea):user-invalid {
+    border-color: #ff6b6b;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 4px;
+    background: var(--accent);
+    color: var(--bg);
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+
+    /* native CSS nesting - no preprocessor required */
+    &:hover {
+        background: var(--accent-hover);
+    }
+}
+
+/* 11. Tables (module summary tables) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+}
+
+caption {
+    padding: 0.5rem 0 1rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+th, td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: var(--card);
+    color: var(--accent);
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* 12. Responsive layout - fluid type and mobile adjustments */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+@media (max-width: 768px) {
+    article,
+    section {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .module-layout article {
+        margin: 0;
+    }
+
+    .module-layout article > section {
+        margin-top: 1rem;
+    }
+
+    .module-layout {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Let wide tables scroll horizontally instead of overflowing */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Stack the banner children vertically */
+    .banner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dropdown {
+        margin-left: 0;
+    }
+
+    /* Keep the dropdown menu inside the viewport */
+    .dropdown-menu {
+        min-width: 0;
+        width: calc(100vw - 2rem);
+    }
+}
+
+/* 13. Motion preferences - respect users who prefer less animation */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        transform: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* 14. Contact form status message */
+.form-status {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: rgba(0, 212, 170, 0.12);
+    color: var(--text);
+}

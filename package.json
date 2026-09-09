@@ -1,0 +1,14 @@
+{
+  "name": "developer-xperience",
+  "version": "1.0.0",
+  "description": "Developer Xperience - HTML & CSS learning roadmaps built with Eleventy",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

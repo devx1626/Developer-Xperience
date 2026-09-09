@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="description" content="{{ description }}">
+<meta name="author" content="Dev X">
+<link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon" sizes="32x32">
+<link rel="icon" href="assets/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="assets/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/icons/android-chrome-192x192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="assets/icons/android-chrome-512x512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/style.css">
+{%- if canonical -%}
+<link rel="canonical" href="{{ canonical }}">
+{%- endif -%}
+<script src="assets/js/script.js" defer></script>
+<title>{{ title }}</title>
+
+<!-- Open Graph / Twitter Cards -->
+{%- set ogImage = 'assets/images/devx_banner.png' -%}
+{%- if siteUrl -%}
+{%- set ogImage = siteUrl + ogImage -%}
+{%- endif -%}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Developer Xperience">
+<meta property="og:title" content="{{ ogTitle }}">
+<meta property="og:description" content="{{ ogDescription }}">
+<meta property="og:image" content="{{ ogImage }}">
+{%- if canonical -%}
+<meta property="og:url" content="{{ canonical }}">
+{%- endif -%}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ twitterTitle }}">
+<meta name="twitter:description" content="{{ ogDescription }}">
+<meta name="twitter:image" content="{{ ogImage }}">

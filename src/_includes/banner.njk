@@ -1,0 +1,18 @@
+<div class="banner">
+  {%- if bannerLink -%}
+  <a href="index.html" aria-label="Go to the homepage">
+    <img src="assets/images/devx_banner.png" alt="" width="1376" height="768" title="Banner" loading="eager" fetchpriority="high" class="banner-image">
+  </a>
+  {%- else -%}
+  <img src="assets/images/devx_banner.png" alt="Developer Xperience banner with code icons and vibrant design" width="1376" height="768" title="Banner" loading="eager" fetchpriority="high" class="banner-image">
+  {%- endif -%}
+  <h1>{{ pageTitle }}</h1>
+  <div class="dropdown">
+    <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="banner-menu" aria-label="More options">
+      <img src="assets/images/more-options.svg" alt="" width="24" height="24">
+    </button>
+    <div class="dropdown-menu" id="banner-menu">
+      {% include menuInclude %}
+    </div>
+  </div>
+</div>
