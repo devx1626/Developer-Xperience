@@ -1,8 +1,10 @@
 name: Deploy to GitHub Pages
 
+# Manual trigger only: GitHub Pages requires a public repo (or a paid plan).
+# If the repo goes public again, restore `push: branches: [main]` to deploy
+# on every push, and re-enable Pages (Settings -> Pages -> Source: GitHub
+# Actions).
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

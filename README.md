@@ -62,10 +62,16 @@ SITE_URL=https://your-domain.example npm run build
 
 Two GitHub Actions workflows run on every push to `main` (and on pull requests):
 
-- **CI** (`.github/workflows/ci.yml`) - installs dependencies, builds the site,
-  and validates the generated output (tag balance, anchor targets, heading
-  outline, asset references, CSS braces, manifest). A second job checks every
-  external link in the generated pages.
+- **CI** (`.github/workflows/ci.yml`) - on every push to `main` and on pull
+  requests: installs dependencies, builds the site, and validates the
+  generated output (tag balance, anchor targets, heading outline, asset
+  references, CSS braces, manifest). A second job checks every external link
+  in the generated pages.
+- **Deploy** (`.github/workflows/deploy.yml`) - builds, validates, and
+  publishes the site to GitHub Pages. **Manual trigger only** (Actions tab →
+  **Run workflow**): GitHub Pages requires a public repo or a paid plan. If
+  this repository becomes public again, restore the `push` trigger in the
+  workflow and enable Pages under **Settings → Pages**.
 - **Deploy** (`.github/workflows/deploy.yml`) - builds, validates, and
   publishes the site to GitHub Pages.
 - **Deploy** (`.github/workflows/deploy.yml`) - builds, validates, and
@@ -85,9 +91,8 @@ The link checker treats bot-blocked responses (403/429/999) as warnings, not
 failures. Genuinely valid links that refuse automated checks can be added to
 `scripts/link-allowlist.txt` (one hostname or substring per line).
 
-The deploy workflow publishes on every push to `main` (or manually via the
-Actions tab with **Run workflow**). The public URL appears in the repo's
-**Settings → Pages** once the first deploy completes.
+The site is not currently published (private repository). All build and
+validation checks still run on every push.
 
 ## Roadmap Format
 
